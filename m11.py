@@ -3,7 +3,7 @@ import math
 dt = []
 result = []
 
-with open("Testcase1.txt", "r") as file:
+with open("Testcase4.txt", "r") as file:
     c = 0
     l = 0
 
