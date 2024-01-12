@@ -1,41 +1,41 @@
 import math
 
-data = []
-ans = []
+dt = []
+result = []
 
-with open("Testcase4.txt", "r") as file:
-    x = 0
+with open("Testcase1.txt", "r") as file:
+    c = 0
     l = 0
 
     for line in file:
         l += 1
         for i in line:
             if '0' <= i <= '9':
-                x = x * 10 + int(i)
+                c = c * 10 + int(i)
         
-        data.append(x)
-        print(f"x={x}")
-        x = 0
+        dt.append(c)
+        print(f"c={c}")
+        c = 0
 
         if l == 3:
             break
 
-d = data[0] / (data[1]-1)
-r = data[0] / 2
+d = dt[0] / dt[1]
+r = dt[0] / 2
 
-a = r * math.cos(math.radians(data[2]))
-b = r * math.sin(math.radians(data[2]))
+a = r * math.cos(math.radians(dt[2]))
+b = r * math.sin(math.radians(dt[2]))
 m = b / a
 
-while data[1] > 0:
-    ans.append((a, b))
+while dt[1] > 0:
+    result.append((a, b))
     r -= d
-    a = r * math.cos(math.radians(data[2]))
-    b = r * math.sin(math.radians(data[2]))
+    a = r * math.cos(math.radians(dt[2]))
+    b = r * math.sin(math.radians(dt[2]))
     if b == -0:
         b = 0
-    data[1] -= 1
+    dt[1] -= 1
 
 with open("result.txt", "a") as wfile:
-    for i in ans:
+    for i in result:
         wfile.write(f"({i[0]:.4f},{i[1]:.4f})\n")
