@@ -56,7 +56,22 @@ for x in range(0, num_dies_x):
             llc = f"({die_x:.4f}, {die_y:.4f})"
             die_indices.append(die_index)
             llcs.append(llc)
-    distance_from_center=30
+    distance_from_center=die_size[0]
+
+for x in range(num_dies_x,-1):
+    for y in range(0, num_dies_y):
+        die_x = x * die_size[0] + die_shift_vector[0] 
+        die_y = y * die_size[1] + die_shift_vector[1] 
+
+        distance_from_center=distance_from_center+die_size[0]
+        if distance_from_center <= wafer_diameter / 2:
+
+            die_index = f"({x},{y})"
+            llc = f"({die_x:.4f}, {die_y:.4f})"
+            die_indices.append(die_index)
+            llcs.append(llc)
+    distance_from_center=die_size[0]
+    
 
 for x in range(-1, num_dies_y):
     for y in range(-1, num_dies_y):
@@ -73,9 +88,20 @@ for x in range(-1, num_dies_y):
     distance_from_center=die_size[0]
 for i in range(len(die_indices)):
     print(f"{die_indices[i]}:{llcs[i]}")
+for x in range(-1,num_dies_x):
+    for y in range(0, num_dies_y):
+        die_x = x * die_size[0] + die_shift_vector[0] 
+        die_y = y * die_size[1] + die_shift_vector[1] 
 
+        distance_from_center=distance_from_center+die_size[0]
+        if distance_from_center <= wafer_diameter / 2:
+
+            die_index = f"({x},{y})"
+            llc = f"({die_x:.4f}, {die_y:.4f})"
+            die_indices.append(die_index)
+            llcs.append(llc)
+    distance_from_center=die_size[0]
     
 with open("rs2.txt", "a") as wfile:
     for i in range(len(die_indices)):
         wfile.write(f"{die_indices[i]}:{llcs[i]}\n")
-
