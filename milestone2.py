@@ -58,7 +58,7 @@ for x in range(0, num_dies_x):
             llcs.append(llc)
     distance_from_center=30
 
-for x in range(-1, num_dies_x):
+for x in range(-1, num_dies_y):
     for y in range(-1, num_dies_y):
         die_x = x * die_size[0] + die_shift_vector[0] 
         die_y = y * die_size[1] + die_shift_vector[1] 
