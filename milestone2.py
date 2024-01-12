@@ -70,7 +70,7 @@ for x in range(-1, num_dies_x):
             llc = f"({die_x:.4f}, {die_y:.4f})"
             die_indices.append(die_index)
             llcs.append(llc)
-    distance_from_center=30
+    distance_from_center=die_size[0]
 for i in range(len(die_indices)):
     print(f"{die_indices[i]}:{llcs[i]}")
 
