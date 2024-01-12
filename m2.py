@@ -75,4 +75,7 @@ for i in range(len(die_indices)):
     print(f"{die_indices[i]}:{llcs[i]}")
 
     
+with open("rs2.txt", "a") as wfile:
+    for i in range(len(die_indices)):
+        wfile.write(f"{die_indices[i]}:{llcs[i]}\n")
 
